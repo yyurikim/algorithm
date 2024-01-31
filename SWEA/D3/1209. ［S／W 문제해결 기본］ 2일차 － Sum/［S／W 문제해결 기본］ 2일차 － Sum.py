@@ -21,16 +21,16 @@ for test_case in range(1, 11):
             row_sum += lst[i][j]
         sum_list.append(row_sum)
 
+    dia_sum = 0
     # 대각선(오른쪽으로 진행) 합 구하기
     for k in range (100):
-        dia_sum = 0
         dia_sum += lst[k][k]
         sum_list.append(dia_sum)
 
+    dia_sum_2 = 0
     # 대각선(왼쪽으로 진행) 합 구하기
-    for k in range (100):
-        dia_sum_2 = 0
-        dia_sum_2 += lst[k][99-k]
+    for l in range (0,100):
+        dia_sum_2 += lst[l][99-l]
         sum_list.append(dia_sum_2)
 
     print(f'#{test_case} {max(sum_list)}')
