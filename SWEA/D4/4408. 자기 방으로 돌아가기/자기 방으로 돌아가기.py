@@ -1,14 +1,21 @@
 T = int(input())
+
 for tc in range(1, T+1):
     N = int(input())
     lst = [list(map(int, input().split())) for _ in range(N)]
-    room_lst = [0]*201
+    time = [0] * 200
 
-    cnt = 0
+    for i in range(N):
+        lst[i].sort()
+        if lst[i][0] % 2 == 0:
+            lst[i][0] -= 1
+        if lst[i][1] % 2 == 0:
+            lst[i][1] -= 1
 
-    for k in range(len(lst)):
-        lst[k].sort()
-        for j in range((lst[k][0]+1)//2, ((lst[k][1]+1)//2)+1):
-            room_lst[j] += 1
+        start_idx = lst[i][0]//2
+        end_idx = lst[i][1]//2
 
-    print(f'#{tc} {max(room_lst)}')
+        for t in range(start_idx, end_idx+1):
+            time[t] += 1
+
+    print(f'#{tc} {max(time)}')
