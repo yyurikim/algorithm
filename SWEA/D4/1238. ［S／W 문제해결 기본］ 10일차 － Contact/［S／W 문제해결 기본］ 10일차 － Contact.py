@@ -1,5 +1,5 @@
 from collections import deque
-
+ 
 def bfs(s):
     q = deque()
     visited = [0] * 101
@@ -17,16 +17,16 @@ def bfs(s):
         if visited[k] >= max_val:
             max_val = visited[k]
             max_num = k
-
+ 
     return max_num
-
+ 
 for tc in range(1, 11):
     L, S = map(int, input().split())
     t = list(map(int, input().split()))
-
+ 
     adjl = [[] for _ in range(101)]
     for i in range(0, L, 2):
         n1, n2 = t[i], t[i+1]
         adjl[n1].append(n2)
-
+ 
     print(f'#{tc} {bfs(S)}')
